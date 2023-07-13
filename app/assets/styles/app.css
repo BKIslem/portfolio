@@ -1,11 +1,17 @@
 body {
-    background-image: url(https://c4.wallpaperflare.com/wallpaper/388/898/571/hd-images-nature-pc-1920x1080-wallpaper-preview.jpg);
+    background-image: url(../img/wallpaperbetter.com_1024x600.jpg);
     background-repeat: no-repeat;
     background-position-x: center;
     background-size: cover;
     background-attachment: fixed;
+   
     
+  }
+  h1{
+    font-family:'Joti One';
+    color: white;
   }
   li{
     color:rgb(137, 93, 220);
+    size: 40px;
   }
