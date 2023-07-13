@@ -2,24 +2,24 @@
 
 namespace App\Form;
 
-use App\Entity\Vehicle;
+use App\Entity\Presentation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class VehicleType extends AbstractType
+class PresentationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('model')
+            ->add('paragraphe')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Vehicle::class,
+            'data_class' => Presentation::class,
         ]);
     }
 }

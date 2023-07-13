@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\VehicleRepository;
+use App\Repository\SoftSkillsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: VehicleRepository::class)]
-class Vehicle
+#[ORM\Entity(repositoryClass: SoftSkillsRepository::class)]
+class SoftSkills
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -14,21 +14,21 @@ class Vehicle
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $model = null;
+    private ?string $Name = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getModel(): ?string
+    public function getName(): ?string
     {
-        return $this->model;
+        return $this->Name;
     }
 
-    public function setModel(string $model): static
+    public function setName(string $Name): static
     {
-        $this->model = $model;
+        $this->Name = $Name;
 
         return $this;
     }
