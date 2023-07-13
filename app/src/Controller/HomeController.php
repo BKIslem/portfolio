@@ -15,7 +15,7 @@ class HomeController extends AbstractController
         $pres =$presentationRepository->findAll();
         //dd($pres);
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'controller_name' => 'Ben Khaled Islem',
             'Presentation' => $pres
         ]);
     }
