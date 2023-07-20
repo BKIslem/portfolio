@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Education;
 use App\Entity\Experience;
 use App\Entity\HardSkills;
+use App\Entity\ProjectImg;
 use App\Entity\Projects;
 use App\Entity\SoftSkills;
 use App\Entity\User;
@@ -40,5 +41,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Education', 'fas fa-list', Education::class);
         yield MenuItem::linkToCrud('Experience', 'fas fa-list', Experience::class);
         yield MenuItem::linkToCrud('Projects', 'fas fa-list', Projects::class);
+        yield MenuItem::linkToCrud('Images', 'fas fa-image', ProjectImg::class);
     }
 }
