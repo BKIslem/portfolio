@@ -20,11 +20,8 @@ class Experience
     #[ORM\Column(length: 255)]
     private ?string $Occupation = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $DateStart = null;
-
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $DateEnd = null;
+    #[ORM\Column(length: 255)]
+    private ?string $DateStart = null;
 
     public function getId(): ?int
     {
@@ -55,26 +52,14 @@ class Experience
         return $this;
     }
 
-    public function getDateStart(): ?\DateTimeInterface
+    public function getDateStart(): ?string
     {
         return $this->DateStart;
     }
 
-    public function setDateStart(\DateTimeInterface $DateStart): static
+    public function setDateStart(string $DateStart): static
     {
         $this->DateStart = $DateStart;
-
-        return $this;
-    }
-
-    public function getDateEnd(): ?\DateTimeInterface
-    {
-        return $this->DateEnd;
-    }
-
-    public function setDateEnd(\DateTimeInterface $DateEnd): static
-    {
-        $this->DateEnd = $DateEnd;
 
         return $this;
     }

@@ -2,6 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Education;
+use App\Entity\Experience;
+use App\Entity\HardSkills;
+use App\Entity\Projects;
+use App\Entity\SoftSkills;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -29,6 +34,11 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         
-        yield MenuItem::linkToCrud('users', 'fas fa-list', User::class);
+        yield MenuItem::linkToCrud('users', 'fas fa-user-pen', User::class);
+        yield MenuItem::linkToCrud('hard skills', 'fas fa-list', HardSkills::class);
+        yield MenuItem::linkToCrud('soft skills', 'fas fa-list', SoftSkills::class);
+        yield MenuItem::linkToCrud('Education', 'fas fa-list', Education::class);
+        yield MenuItem::linkToCrud('Experience', 'fas fa-list', Experience::class);
+        yield MenuItem::linkToCrud('Projects', 'fas fa-list', Projects::class);
     }
 }

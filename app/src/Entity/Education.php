@@ -20,8 +20,8 @@ class Education
     #[ORM\Column(length: 255)]
     private ?string $Establishment = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $Year = null;
+    #[ORM\Column(length: 255)]
+    private ?string $Year = null;
 
     public function getId(): ?int
     {
@@ -52,12 +52,12 @@ class Education
         return $this;
     }
 
-    public function getYear(): ?\DateTimeInterface
+    public function getYear(): ?string
     {
         return $this->Year;
     }
 
-    public function setYear(\DateTimeInterface $Year): static
+    public function setYear(string $Year): static
     {
         $this->Year = $Year;
 
