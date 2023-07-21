@@ -67,9 +67,12 @@ class SoftSkillsController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_soft_skills_delete', methods: ['POST'])]
-    public function delete(Request $request, SoftSkills $softSkill, SoftSkillsRepository $softSkillsRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$softSkill->getId(), $request->request->get('_token'))) {
+    public function delete(
+        Request $request,
+        SoftSkills $softSkill,
+        SoftSkillsRepository $softSkillsRepository
+    ): Response {
+        if ($this->isCsrfTokenValid('delete' . $softSkill->getId(), $request->request->get('_token'))) {
             $softSkillsRepository->remove($softSkill, true);
         }
 

@@ -14,15 +14,9 @@ class ProjectsCrudController extends AbstractCrudController
     {
         return Projects::class;
     }
-
-    
     public function configureFields(string $pageName): iterable
     {
-        
-            
             yield TextField::new('Name');
             yield CollectionField::new('projectImg');
-        
     }
-    
 }

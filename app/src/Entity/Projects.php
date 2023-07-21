@@ -27,7 +27,6 @@ class Projects
     {
         return $this->id;
     }
-   
     public function getName(): ?string
     {
         return $this->Name;

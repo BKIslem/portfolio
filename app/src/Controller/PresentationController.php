@@ -49,8 +49,11 @@ class PresentationController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_presentation_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Presentation $presentation, PresentationRepository $presentationRepository): Response
-    {
+    public function edit(
+        Request $request,
+        Presentation $presentation,
+        PresentationRepository $presentationRepository
+    ): Response {
         $form = $this->createForm(PresentationType::class, $presentation);
         $form->handleRequest($request);
 
@@ -67,12 +70,14 @@ class PresentationController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_presentation_delete', methods: ['POST'])]
-    public function delete(Request $request, Presentation $presentation, PresentationRepository $presentationRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$presentation->getId(), $request->request->get('_token'))) {
+    public function delete(
+        Request $request,
+        Presentation $presentation,
+        PresentationRepository $presentationRepository
+    ): Response {
+        if ($this->isCsrfTokenValid('delete' . $presentation->getId(), $request->request->get('_token'))) {
             $presentationRepository->remove($presentation, true);
         }
-
         return $this->redirectToRoute('app_presentation_index', [], Response::HTTP_SEE_OTHER);
     }
 }

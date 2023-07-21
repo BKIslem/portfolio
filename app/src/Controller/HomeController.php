@@ -14,8 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index( HardSkillsRepository $hardSkillsRepository, SoftSkillsRepository $softSkillsRepository, EducationRepository $educationRepository, ExperienceRepository $experienceRepository ): Response
-    {
+    public function index(
+        HardSkillsRepository $hardSkillsRepository,
+        SoftSkillsRepository $softSkillsRepository,
+        EducationRepository $educationRepository,
+        ExperienceRepository $experienceRepository
+    ): Response {
         // $pres =$presentationRepository->findAll();
         $hard = $hardSkillsRepository->findAll();
         $soft = $softSkillsRepository->findAll();
@@ -24,8 +28,8 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'hards' => $hard,
             'softs' => $soft,
-            'educations'=> $education,
-            'experiences'=>$experience
+            'educations' => $education,
+            'experiences' => $experience
             // 'controller_name' => 'Ben Khaled Islem',
             // 'Presentation' => $pres
         ]);
