@@ -4,6 +4,7 @@
         "docker-stop": "cls && docker-compose down",
         "app-scripts": "cls && docker exec -it portfolio-app bash",
         "run-watch": "cls && docker exec -it portfolio-app sh -c ./runwatch.sh",
-        "check:security": "cls && docker exec -it portfolio-app bash -c \"symfony check:security\""
+        "check:security": "cls && docker exec -it portfolio-app bash -c \"symfony check:security\"",
+        "check:code": "cls && docker exec -it portfolio-app bash -c \"./vendor/bin/phpcs -v --standard=PSR12 --ignore=./src/Kernel.php ./src\""
     }
 }
