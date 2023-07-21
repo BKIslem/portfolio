@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Projects;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ProjectsCrudController extends AbstractCrudController
@@ -19,7 +21,7 @@ class ProjectsCrudController extends AbstractCrudController
         
             
             yield TextField::new('Name');
-            yield TextEditorField::new('description');
+            yield CollectionField::new('projectImg');
         
     }
     
