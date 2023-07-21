@@ -8,3 +8,4 @@
         "check:code": "cls && docker exec -it portfolio-app bash -c \"./vendor/bin/phpcs -v --standard=PSR12 --ignore=./src/Kernel.php ./src\""
     }
 }
+
