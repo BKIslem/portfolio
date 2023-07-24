@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProjectsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -20,8 +22,13 @@ class Projects
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $YearOfRelease = null;
 
-    #[ORM\OneToOne(mappedBy: 'project', cascade: ['persist', 'remove'])]
-    private ?ProjectImg $projectImg = null;
+    #[ORM\OneToMany(mappedBy: 'Projects', targetEntity: ProjectImage::class, orphanRemoval: true, cascade: ['persist'])]
+    private Collection $projectImages;
+
+    public function __construct()
+    {
+        $this->projectImages = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -51,19 +58,33 @@ class Projects
         return $this;
     }
 
-    public function getProjectImg(): ?ProjectImg
+
+    /**
+     * @return Collection<int, ProjectImage>
+     */
+    public function getProjectImages(): Collection
     {
-        return $this->projectImg;
+        return $this->projectImages;
     }
 
-    public function setProjectImg(ProjectImg $projectImg): static
+    public function addProjectImage(ProjectImage $projectImage): static
     {
-        // set the owning side of the relation if necessary
-        if ($projectImg->getProject() !== $this) {
-            $projectImg->setProject($this);
+        if (!$this->projectImages->contains($projectImage)) {
+            $this->projectImages->add($projectImage);
+            $projectImage->setProjects($this);
         }
 
-        $this->projectImg = $projectImg;
+        return $this;
+    }
+
+    public function removeProjectImage(ProjectImage $projectImage): static
+    {
+        if ($this->projectImages->removeElement($projectImage)) {
+            // set the owning side to null (unless already changed)
+            if ($projectImage->getProjects() === $this) {
+                $projectImage->setProjects(null);
+            }
+        }
 
         return $this;
     }

@@ -2,14 +2,14 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\ProjectImg;
+use App\Entity\ProjectImage;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class ProjectImgCrudController extends AbstractCrudController
+class ProjectImageCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return ProjectImg::class;
+        return ProjectImage::class;
     }
 
     /*
