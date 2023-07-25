@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Controller;
-
+use App\Repository\ProjectImageRepository;
+use App\Repository\ProjectsRepository;
 use App\Repository\EducationRepository;
 use App\Repository\ExperienceRepository;
 use App\Repository\HardSkillsRepository;
@@ -18,18 +19,24 @@ class HomeController extends AbstractController
         HardSkillsRepository $hardSkillsRepository,
         SoftSkillsRepository $softSkillsRepository,
         EducationRepository $educationRepository,
-        ExperienceRepository $experienceRepository
+        ExperienceRepository $experienceRepository,
+        ProjectsRepository $projectsRepository,
+        ProjectImageRepository $projectImageRepository
     ): Response {
         // $pres =$presentationRepository->findAll();
         $hard = $hardSkillsRepository->findAll();
         $soft = $softSkillsRepository->findAll();
         $education = $educationRepository->findAll();
         $experience = $experienceRepository->findall();
+        $projects = $projectsRepository->findall();
+        $projectimages = $projectImageRepository->findall();
         return $this->render('home/index.html.twig', [
             'hards' => $hard,
             'softs' => $soft,
             'educations' => $education,
-            'experiences' => $experience
+            'experiences' => $experience,
+            'myprojects' => $projects,
+            'myphotos' => $projectimages
             // 'controller_name' => 'Ben Khaled Islem',
             // 'Presentation' => $pres
         ]);

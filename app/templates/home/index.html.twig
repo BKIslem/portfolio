@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Hello Developers{% endblock %}
 {% block body %}
 {# <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
@@ -151,6 +151,35 @@
 
     </div>
   </section><!-- End Resume Section -->
+
+  <section id="projects" class="projects">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>CHECK My Projects</p>
+      </div>
+
+      <div class="row">
+      
+      {% for projectimages in myphotos %}
+      <div class="col-lg-6">
+      <img src = {{("/images/projects/" ~ projectimages.name)}} width='70%'>
+      </div>
+      {% endfor %}
+      
+      {% for projects in myprojects %}
+      <div class="col-lg-6">
+      <br>
+      <h2> {{projects.name}} </h2>
+      </div>
+      {% endfor %}
+      
+      
+       
+
+    </div>
+  </section><!-- End Services Section -->
 
     
 {% endblock %}

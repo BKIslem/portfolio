@@ -9,6 +9,12 @@ body {
    
     
   }
+  .resume-title{
+    color: #8e79c7;
+  }
+  .resume-item p{
+    color:#8e79c7;
+  }
   form{
     color: #fff;
   }
@@ -382,7 +388,7 @@ body {
     width: 120px;
     height: 1px;
     display: inline-block;
-    background: #4ceb95;
+    background: #8e79c7 ;
     margin: 4px 10px;
   }
   
@@ -402,7 +408,7 @@ body {
   .about-me .content h3 {
     font-weight: 700;
     font-size: 26px;
-    color: #18d26e;
+    color: #8e79c7;
   }
   ol, ul {
     padding-left: 5rem !important;}
@@ -425,7 +431,7 @@ body {
   .about-me .content ul i {
     font-size: 16px;
     margin-right: 5px;
-    color: #18d26e;
+    color: #8e79c7;
     line-height: 0;
   }
   
