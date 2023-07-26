@@ -132,19 +132,41 @@
           <h3 class="resume-title">Professional Experience</h3>
           {% for experience in experiences %}
           <div class="resume-item">
+          {% if experience.id == 1 %}
             <h4>{{experience.Occupation}}</h4>
             <h5 class='text-center'>{{experience.DateStart}}</h5>
             <p><em>{{experience.WorkPlace}} </em></p>
+          {% endif %}
+          {% endfor %}
             <p>
             <ul>
-              <li></li>
-              <li> </li>
-              <li></li>
-              <li></li>
+            {% for tache in taches %}
+             {% if tache.experience is not null and tache.experience.id == 1 %}
+              <li>{{tache.name}} </li>
+            {% endif %}
+            {% endfor %}
             </ul>
             </p>
           </div>
-          {% endfor %}
+          
+          {% for experience in experiences %}
+          <div class="resume-item">
+          {% if experience.id == 2 %}
+            <h4>{{experience.Occupation}}</h4>
+            <h5 class='text-center'>{{experience.DateStart}}</h5>
+            <p><em>{{experience.WorkPlace}} </em></p>
+            {% endif %}
+            {% endfor %}
+            <p>
+            <ul>
+            {% for tache in taches %}
+             {% if tache.experience is not null and tache.experience.id == 2 %}
+              <li>{{tache.name}}</li>
+               {% endif %}
+               {% endfor %}
+            </ul>
+            </p>
+          </div>
           
         </div>
       </div>
@@ -180,6 +202,10 @@
 
     </div>
   </section><!-- End Services Section -->
+
+   <div class="credits">
+    Copyright by <a href="https://github.com/BKIslem"> Ben Khaled Islem</a>
+  </div>
 
     
 {% endblock %}

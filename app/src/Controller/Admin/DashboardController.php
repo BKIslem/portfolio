@@ -8,6 +8,7 @@ use App\Entity\HardSkills;
 use App\Entity\ProjectImage;
 use App\Entity\Projects;
 use App\Entity\SoftSkills;
+use App\Entity\Tache;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -38,6 +39,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('soft skills', 'fas fa-list', SoftSkills::class);
         yield MenuItem::linkToCrud('Education', 'fas fa-list', Education::class);
         yield MenuItem::linkToCrud('Experience', 'fas fa-list', Experience::class);
+        yield MenuItem::linkToCrud('Tach of Experience', 'fas fa-list', Tache::class);
         yield MenuItem::linkToCrud('Projects', 'fas fa-list', Projects::class);
         yield MenuItem::linkToCrud('Images', 'fas fa-image', ProjectImage::class);
     }

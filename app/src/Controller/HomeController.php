@@ -8,6 +8,7 @@ use App\Repository\ExperienceRepository;
 use App\Repository\HardSkillsRepository;
 use App\Repository\PresentationRepository;
 use App\Repository\SoftSkillsRepository;
+use App\Repository\TacheRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,7 +22,8 @@ class HomeController extends AbstractController
         EducationRepository $educationRepository,
         ExperienceRepository $experienceRepository,
         ProjectsRepository $projectsRepository,
-        ProjectImageRepository $projectImageRepository
+        ProjectImageRepository $projectImageRepository,
+        TacheRepository $tacheRepository
     ): Response {
         // $pres =$presentationRepository->findAll();
         $hard = $hardSkillsRepository->findAll();
@@ -30,13 +32,15 @@ class HomeController extends AbstractController
         $experience = $experienceRepository->findall();
         $projects = $projectsRepository->findall();
         $projectimages = $projectImageRepository->findall();
+        $tache = $tacheRepository ->findAll();
         return $this->render('home/index.html.twig', [
             'hards' => $hard,
             'softs' => $soft,
             'educations' => $education,
             'experiences' => $experience,
             'myprojects' => $projects,
-            'myphotos' => $projectimages
+            'myphotos' => $projectimages,
+            'taches' => $tache
             // 'controller_name' => 'Ben Khaled Islem',
             // 'Presentation' => $pres
         ]);
