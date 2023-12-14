@@ -3,17 +3,59 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
 
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.UserName) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+    <h1 class="h3 mb-3 font-weight-normal text-center">Register</h1>
+    <div class="form-group">
+        {{ form_label(registrationForm.UserName) }}
+        {{ form_widget(registrationForm.UserName, {'attr': {'class': 'form-control', 'style': 'margin-bottom: 2%; margin-top: 2%;'}}) }}
+        {% if formErrors.UserName is defined %}
+            <div class="alert alert-danger">{{ formErrors.UserName }}</div>
+        {% endif %}
+    </div>
 
-        <button type="submit" class="btn">Register</button>
+    <div class="form-group">
+        {{ form_label(registrationForm.plainPassword, 'Password') }}
+        {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'style': 'margin-bottom: 2%;margin-top: 2%;'}}) }}
+        {% if formErrors.plainPassword is defined %}
+            <div class="alert alert-danger">{{ formErrors.plainPassword }}</div>
+        {% endif %}
+        {% if rollerworksErrors is defined %}
+    {% for fieldName, fieldErrors in rollerworksErrors %}
+        <div class="alert alert-danger">
+            {% for error in fieldErrors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endif %}
+    </div>
+
+    {# <div class="form-group">
+        {{ form_row(registrationForm.agreeTerms) }}
+    </div> #}
+    <div class="form-group">
+        {{ form_label(registrationForm.agreeTerms, 'Agree Terms') }}
+        {{ form_widget(registrationForm.agreeTerms, {'attr': {'style': 'margin-left: 1%;'}}) }}
+    </div>
+    
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-md" type="submit">
+            Register
+        </button>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center colorGrid"> 
+        <a href="{{ path('app_login') }}">Login</a> 
+        <a href="{{ path('app_home') }}">Home</a>
+    </div>
+
     {{ form_end(registrationForm) }}
+    
+    <div class="credits">
+        Copyright by <a href="{{path('app_login')}}"> Ben Khaled Islem</a>
+    </div>
+    
 {% endblock %}

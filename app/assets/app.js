@@ -1,17 +1,7 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
-
-// any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 import 'bootstrap';
-import Waypoint from 'waypoints/lib/noframework.waypoints.min.js';
 (function() {
   "use strict";
-
   /**
    * Easy selector helper function
    */
@@ -99,7 +89,6 @@ import Waypoint from 'waypoints/lib/noframework.waypoints.min.js';
             item.classList.remove('section-show')
           })
           section.classList.add('section-show')
-
         }, 350);
       } else {
         sections.forEach((item) => {
@@ -107,14 +96,9 @@ import Waypoint from 'waypoints/lib/noframework.waypoints.min.js';
         })
         section.classList.add('section-show')
       }
-
       scrollto(this.hash)
     }
   }, true)
-
-  /**
-   * Activate/show sections on load with hash links
-   */
   window.addEventListener('load', () => {
     if (window.location.hash) {
       let initial_nav = select(window.location.hash)
@@ -132,19 +116,13 @@ import Waypoint from 'waypoints/lib/noframework.waypoints.min.js';
             item.classList.remove('active')
           }
         })
-
         setTimeout(function() {
           initial_nav.classList.add('section-show')
         }, 350);
-
         scrollto(window.location.hash)
       }
     }
   });
-
-  /**
-   * Skills animation
-   */
   document.addEventListener('DOMContentLoaded', function() {
     const progressBars = document.querySelectorAll('.progress .progress-bar');
   
@@ -154,9 +132,4 @@ import Waypoint from 'waypoints/lib/noframework.waypoints.min.js';
       console.log(percentage);
     });
   });
-
-  /**
-   * Testimonials slider
-   */
-  
-})()
+})();

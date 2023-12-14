@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller\Admin;
 
 use App\Entity\Education;
@@ -25,18 +24,16 @@ class DashboardController extends AbstractDashboardController
          $adminUrlGenerator = $this->container->get(AdminUrlGenerator ::class);
         return $this->redirect($adminUrlGenerator->setController(UserCrudController::class)->generateUrl());
     }
-
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
             ->setTitle('Dashbord');
     }
-
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToCrud('users', 'fas fa-user-pen', User::class);
-        yield MenuItem::linkToCrud('hard skills', 'fas fa-list', HardSkills::class);
-        yield MenuItem::linkToCrud('soft skills', 'fas fa-list', SoftSkills::class);
+        yield MenuItem::linkToCrud('Users', 'fas fa-user-pen', User::class);
+        yield MenuItem::linkToCrud('Hard skills', 'fas fa-list', HardSkills::class);
+        yield MenuItem::linkToCrud('Soft skills', 'fas fa-list', SoftSkills::class);
         yield MenuItem::linkToCrud('Education', 'fas fa-list', Education::class);
         yield MenuItem::linkToCrud('Experience', 'fas fa-list', Experience::class);
         yield MenuItem::linkToCrud('Tach of Experience', 'fas fa-list', Tache::class);

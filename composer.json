@@ -1,0 +1,5 @@
+{
+    "require": {
+        "rollerworks/password-strength-bundle": "^2.2"
+    }
+}

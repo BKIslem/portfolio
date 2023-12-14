@@ -10,11 +10,15 @@
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            You are logged in as {{ app.user.userIdentifier }}, <br>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{{ path('app_logout') }}">Logout</a> 
+            <a href="{{ path('app_home') }}">Home</a>
+            </div>
         </div>
     {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+{% if not app.user %}
+    <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
     <label for="inputUserName">User Name</label>
     <input type="text" value="{{ last_username }}" name="UserName" id="inputUserName" class="form-control" autocomplete="username" required autofocus>
     <label for="inputPassword">Password</label>
@@ -34,9 +38,20 @@
             </label>
         </div>
     #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-md  " type="submit">
         Sign in
     </button>
+    </div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-center colorGrid"> 
+            <a href="{{ path('app_register') }}">Create account</a> 
+            <a href="{{ path('app_home') }}">Home</a>
+        </div>
+        
 </form>
+
+{% endif %}
+    <div class="credits">
+        Copyright by <a href="{{path('app_login')}}"> Ben Khaled Islem</a>
+    </div>
 {% endblock %}

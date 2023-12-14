@@ -6,7 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-
+use Rollerworks\Component\PasswordStrength\Validator\Constraints as RollerworksPassword;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -25,6 +25,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[RollerworksPassword\PasswordRequirements(
+        minLength:12,
+        requireLetters:true,
+        requireNumbers:true,
+        requireCaseDiff:true,
+        requireSpecialCharacter:true,
+        tooShortMessage:'Your password must be at least {{length}} characters long.',
+        missingLettersMessage:'Your password must include at least one letter.',
+        requireCaseDiffMessage:'Your password must include both upper and lower case letters.',
+        missingNumbersMessage:'Your password must include at least one number.',
+        missingSpecialCharacterMessage:'Your password must contain at least one special character.'
+    )]
     private ?string $password = null;
 
     public function getId(): ?int

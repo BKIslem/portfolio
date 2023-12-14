@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Security;
-
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,11 +44,12 @@ class Authenticator extends AbstractLoginFormAuthenticator
         if (in_array('ROLE_ADMIN', $roles)) {
             return new RedirectResponse($this->urlGenerator->generate('admin'));
         }
-
+        else {
+            return new RedirectResponse($this->urlGenerator->generate('app_home'));
+        }
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
-
         // Si l'utilisateur n'a pas le rôle ROLE_ADMIN et qu'il n'y a pas de chemin cible de redirection,
         // redirigez-le vers une page par défaut
         return new RedirectResponse($this->urlGenerator->generate('homepage'));

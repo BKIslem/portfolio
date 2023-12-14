@@ -6,13 +6,11 @@ use App\Repository\ProjectsRepository;
 use App\Repository\EducationRepository;
 use App\Repository\ExperienceRepository;
 use App\Repository\HardSkillsRepository;
-use App\Repository\PresentationRepository;
 use App\Repository\SoftSkillsRepository;
 use App\Repository\TacheRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
