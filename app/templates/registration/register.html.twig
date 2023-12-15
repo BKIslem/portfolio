@@ -9,8 +9,8 @@
     {{ form_start(registrationForm) }}
     <h1 class="h3 mb-3 font-weight-normal text-center">Register</h1>
     <div class="form-group">
-        {{ form_label(registrationForm.UserName) }}
-        {{ form_widget(registrationForm.UserName, {'attr': {'class': 'form-control', 'style': 'margin-bottom: 2%; margin-top: 2%;'}}) }}
+        {{ form_label(registrationForm.UserName)}}
+        {{ form_widget(registrationForm.UserName, {'attr': {'class': 'form-control', 'style': 'margin-bottom: 2%; margin-top: 2%;'}})}}
         {% if formErrors.UserName is defined %}
             <div class="alert alert-danger">{{ formErrors.UserName }}</div>
         {% endif %}

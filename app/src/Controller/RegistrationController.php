@@ -38,44 +38,8 @@ class RegistrationController extends AbstractController
         
             return $this->redirectToRoute('app_home');
         }
-        
-           // Get RollerworksPassword errors
-    $rollerworksErrors = $this->getRollerworksPasswordErrors($form->getErrors(true, true));
-
     return $this->render('registration/register.html.twig', [
-        'registrationForm' => $form->createView(),
-        'rollerworksErrors' => $rollerworksErrors,
+        'registrationForm' => $form->createView()
     ]);
-}
-
-/**
- * Extracts RollerworksPassword errors from FormErrorIterator
- *
- * @param FormErrorIterator $errors
- * @return array
- */
-private function getRollerworksPasswordErrors(FormErrorIterator $errors): array
-{
-    $rollerworksErrors = [];
-
-    foreach ($errors as $error) {
-        $origin = $error->getOrigin();
-        if ($origin) {
-            $formConfig = $origin->getConfig();
-            $options = $formConfig->getOptions();
-
-            if (isset($options['constraints'])) {
-                $constraints = $options['constraints'];
-
-                foreach ($constraints as $constraint) {
-                    if ($constraint instanceof \Rollerworks\Component\PasswordStrength\Validator\Constraints\PasswordRequirements) {
-                        $rollerworksErrors[$origin->getName()][] = $error->getMessage();
-                    }
-                }
-            }
-        }
-    }
-
-    return $rollerworksErrors;
 }
 }
